@@ -19,4 +19,21 @@ BB <- B*B
 C_inv <- solve(C)
 CC_inv <- C%*%solve(C)
 
-# test
+cat("\nA+B nie istnieje bo różne wymiary macierzy\n", "\nA+Bt=")
+At_sum_B
+cat("\nB*A=")
+BA
+cat("\nB*B=")
+BB
+cat("\nC^-1=")
+C_inv
+cat("\nC*C^-1=")
+round(CC_inv,14)
+
+#podpunkt b
+X_1 = B %*% solve(C)
+X_2 = solve(D) %*% B
+cat("\nX dla równania XC=B to:\n")
+X_1
+cat("\nX dla równania DX=B to:\n")
+X_2
