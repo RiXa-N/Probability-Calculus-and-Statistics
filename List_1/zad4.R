@@ -18,3 +18,5 @@ BA <- B%*%A
 BB <- B*B
 C_inv <- solve(C)
 CC_inv <- C%*%solve(C)
+
+# test
