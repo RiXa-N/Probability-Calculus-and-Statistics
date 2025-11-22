@@ -6,12 +6,12 @@ set.seed(12345)
 u <- runif(5000, min=0, max=1)
 
 png("hist_uniform.png", width = 800, height = 600)
-hist(u, breaks=30, prob=TRUE, main="Histogram - U[0,1], n=5000", xlab="Wartość")
+hist(u, breaks=30, col="red", prob=TRUE, main="Histogram - U[0,1], n=5000", xlab="Wartość")
 
 dens_u <- density(u)
 
 png("kde_uniform.png", width = 800, height = 600)
-plot(dens_u, main="Estymator jądrowy - U[0,1], n=5000", xlab="Wartość")
+plot(dens_u, col="red", main="Estymator jądrowy - U[0,1], n=5000", xlab="Wartość")
 
 # b) 3000 z N(100,15)
 set.seed(12345)
@@ -19,12 +19,12 @@ set.seed(12345)
 n <- rnorm(3000, mean=100, sd=15)
 
 png("hist_normal.png", width = 800, height = 600)
-hist(n, breaks=30, prob=TRUE, main="Histogram - N(100,15), n=3000", xlab="Wartość")
+hist(n, breaks=30, col="orange", prob=TRUE, main="Histogram - N(100,15), n=3000", xlab="Wartość")
 
 dens_n <- density(n)
 
 png("kde_normal.png", width = 800, height = 600)
-plot(dens_n, main="Estymator jądrowy - N(100,15), n=3000", xlab="Wartość")
+plot(dens_n, col="orange", main="Estymator jądrowy - N(100,15), n=3000", xlab="Wartość")
 
 # Zad.2
 cat("Zad.2 \n")
