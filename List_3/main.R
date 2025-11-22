@@ -46,7 +46,7 @@ punif(11, min=a, max=b) - punif(5, min=a, max=b)
 
 1 - punif(10, min=a, max=b)
 
-qnorm_ <- function(p) a + p*(b-a)  # kwantyl rozkładu jednostajnego
+qnorm_ <- function(p) a + p*(b-a)  # kwantyl rozkładu jednostajnego Kwantyl p to punkt po ktorym znajduje sie dokladnuie p realizacji zmiennej losowej
 x <- a + 0.4*(b-a)
 x
 cat("\n")
@@ -56,7 +56,8 @@ lambda <- 4
 
 sec_to_min <- function(s) s/60
 
-p_i <- exp(-lambda * sec_to_min(30))
+p_i <- exp(-lambda * sec_to_min(30)) # exp(n) - e^n
+# p_i <- 1 - pexp(sec_to_min(30), lambda)
 
 p_ii <- 1 - exp(-lambda * sec_to_min(20))
 
@@ -73,7 +74,7 @@ t <- seq(0, 3, by=0.01)
 g <- dexp(t, rate=lambda)
 
 png("wykres_wykładniczy.png", width=800, height=500)
-plot(t, g, type="l", lwd=2, col="blue",
+plot(t, g, type="l", lwd=3, col="blue",
      main="Gęstość rozkładu wykładniczego (λ = 4/min)",
      xlab="Czas między telefonami (minuty)",
      ylab="g(t)")
@@ -88,15 +89,6 @@ pnorm(190, 170, 12) - pnorm(155, 170, 12)
 
 qnorm(0.9, mean=170, sd=12) # Funkcja kwantylowa rozkładu normalnego
 
-x <- seq(130, 210, by=0.1)
-y <- dnorm(x, mean=170, sd=12)
-plot(x, y, type="l", lwd=2, col="blue",
-     main="Rozkład normalny wzrostu studentów",
-     xlab="Wzrost (cm)", ylab="gęstość")
-
-x_fill <- seq(180, 210, by=0.1)
-polygon(c(x_fill, rev(x_fill)), c(dnorm(x_fill,170,12), rep(0,length(x_fill))),
-        col=rgb(1,0,0,0.3), border=NA)
 cat("\n")
 
 # Zad.6
