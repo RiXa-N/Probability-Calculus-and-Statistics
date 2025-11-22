@@ -74,7 +74,7 @@ t <- seq(0, 3, by=0.01)
 g <- dexp(t, rate=lambda)
 
 png("wykres_wykładniczy.png", width=800, height=500)
-plot(t, g, type="l", lwd=3, col="blue",
+plot(t, g, type="l", lwd=3, col="red",
      main="Gęstość rozkładu wykładniczego (λ = 4/min)",
      xlab="Czas między telefonami (minuty)",
      ylab="g(t)")
