@@ -3,7 +3,7 @@
 # a) 5000 z U[0,1]
 set.seed(12345)
 
-u <- runif(5000, min=0, max=1)
+u <- runif(5000, min=0, max=1) # losowe liczby z rozkladu jednostajnego
 
 png("hist_uniform.png", width = 800, height = 600)     # zapis histogramu do pliku PNG
 hist(u, breaks=30, col="red", prob=TRUE,main="Histogram - U[0,1], n=5000", xlab="Wartość") # prob=TRUE → histogram gęstości
@@ -16,7 +16,7 @@ plot(dens_u, col="red", main="Estymator jądrowy - U[0,1], n=5000", xlab="Warto�
 # b) 3000 z N(100,15)
 set.seed(12345)
 
-n <- rnorm(3000, mean=100, sd=15)
+n <- rnorm(3000, mean=100, sd=15) # losowe liczby z rozkladu gausa mean- srednia sd - odchylenie
 
 png("hist_normal.png", width = 800, height = 600)
 hist(n, breaks=30, col="orange", prob=TRUE, main="Histogram - N(100,15), n=3000", xlab="Wartość")
@@ -32,8 +32,8 @@ cat("Zad.2 \n")
 # a) i)
 set.seed(123)
 
-u <- runif(600)                     # 600 realizacji U[0,1]
-rzuty <- ceiling(6 * u)            # X = ceil(6u): generowanie liczb 1–6
+u <- runif(600)
+rzuty <- ceiling(6 * u)            # zaokrangla do najblizszej calkowitej
 
 head(rzuty, 5)
 cat("\n")
@@ -47,12 +47,12 @@ wariancja
 cat("\n")
 
 # a) iii)
-czestosci <- table(rzuty)
+czestosci <- table(rzuty) # tworzy tablice czestosci
 czestosci
 cat("\n")
 
 # a) iv)
-ramka <- as.data.frame(czestosci)
+ramka <- as.data.frame(czestosci) # przerobienie na data frame
 ramka
 var_czestosci <- var(ramka$Freq)   # wariancja liczności kategorii
 var_czestosci
@@ -61,7 +61,7 @@ cat("\n")
 # b)
 set.seed(123)
 
-rzuty_sample <- sample(1:6, size = 600, replace = TRUE)
+rzuty_sample <- sample(1:6, size = 600, replace = TRUE) # losowe wybieranie elementow replace - czy ze zwracaniem
 
 head(rzuty_sample)
 table(rzuty_sample)
@@ -77,19 +77,15 @@ k <- c(0, 1, 2, 3)
 p <- c(0.15, 0.25, 0.50, 0.10)
 
 # sort mal prawdopodobieństwa dla optymalki
-ord <- order(p, decreasing = TRUE)
+ord <- order(p, decreasing = TRUE) # podaje kolejnosc w ktora trzeba ustawic elementy zby posortowac
 k_sorted <- k[ord]
 p_sorted <- p[ord]
 
 # prawdopodobieństwa skumulowane
-s <- cumsum(p_sorted)
+s <- cumsum(p_sorted) # oblicza skumulowana sume elementow wektora
 
-u <- runif(1000)                   # 1000 realizacji U[0,1]
-X <- numeric(1000)                 # wektor wyników
-
-# generujemy X według reguły:
-#    X = k_i   gdy   s_(i-1) <= u < s_i
-X <- numeric(1000)
+u <- runif(1000)
+X <- numeric(1000)                 # tworzy wektor zer typu double
 
 for (i in 1:1000) {
   ui <- u[i]
