@@ -176,7 +176,7 @@ losuj_przyjecie_odrzucenie <- function(n) {
 }
 
 # b) ii)
-set.seed(123)
+set.seed(as.numeric(Sys.time()))
 
 realizacje_przyjecie <- losuj_przyjecie_odrzucenie(200)
 
